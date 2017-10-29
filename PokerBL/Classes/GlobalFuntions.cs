@@ -14,5 +14,7 @@ namespace PokerBL.Classes
             cardValueAsInt = Convert.ToInt16((T)Enum.Parse(typeof(T), Convert.ToString(value)));
             return cardValueAsInt;
         }
+
+       
     }
 }

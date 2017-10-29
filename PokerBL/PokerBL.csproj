@@ -49,7 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PokerEntities\PokerEntities.csproj">
-      <Project>{FC8F0DA1-83FB-47BC-938C-E6B50BF0D1FF}</Project>
+      <Project>{fc8f0da1-83fb-47bc-938c-e6b50bf0d1ff}</Project>
       <Name>PokerEntities</Name>
     </ProjectReference>
   </ItemGroup>

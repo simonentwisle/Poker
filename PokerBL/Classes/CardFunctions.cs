@@ -15,7 +15,7 @@ namespace PokerBL
             foreach (string card in arrayOfCards)
             {
                 var cardValue = GetCardValue(card);
-                var cardSuit = GetCardSuite(card);
+                var cardSuit = GetCardSuit(card);
                 var theCardWeWant = new Card()
                 {
                     CardValue = cardValue,
@@ -24,21 +24,21 @@ namespace PokerBL
                 theCardsWeWant.Add(theCardWeWant);
             }
             return theCardsWeWant;
-        }
+         }
 
         private static int GetCardValue(string card)
         {
             char cardValueAsChar = Convert.ToChar(card.Trim().Substring(0, 1));
             string cardValueAsString = card.Trim().Substring(0, 1);
             int cardValue = 0;
-            if (!System.Char.IsNumber(cardValueAsChar))
+            if (!Char.IsNumber(cardValueAsChar))
                 cardValue = GlobalFuntions.GetIntValueFromEnum<CardValues>(cardValueAsString);
             else
                 cardValue = Convert.ToInt32(cardValueAsString);
             return cardValue;
         }
 
-        private static string GetCardSuite(string card)
+        private static string GetCardSuit(string card)
         {
             return card.Trim().Substring(1, 1);
         }
