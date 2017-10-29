@@ -48,5 +48,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="poker.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PokerBL\PokerBL.csproj">
+      <Project>{d7e2cec9-0a94-4b0a-9adc-f281911a79a5}</Project>
+      <Name>PokerBL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

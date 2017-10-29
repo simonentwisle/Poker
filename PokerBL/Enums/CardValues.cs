@@ -8,6 +8,7 @@ namespace Poker.Enums
 {
     public enum CardValues
     {
+        Zero,
         One,
         Two,
         Three,
@@ -17,10 +18,10 @@ namespace Poker.Enums
         Seven,
         Eight,
         Nine,
-        Ten,
-        Jack,
-        Queen,
-        King,
-        Ace
+        T,
+        J,
+        Q,
+        K,
+        A
     }
 }

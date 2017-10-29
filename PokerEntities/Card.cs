@@ -8,8 +8,7 @@ namespace Poker.Entities
 {
     public class Card
     {
-        private int CardValue { get; set; }
-        private string Suit { get; set; }
-
+        public int CardValue { get; set; }
+        public string Suit { get; set; }
     }
 }

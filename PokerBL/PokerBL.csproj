@@ -40,10 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Classes\CardFunctions.cs" />
+    <Compile Include="Classes\GlobalFuntions.cs" />
+    <Compile Include="Classes\Initialise.cs" />
     <Compile Include="Enums\CardValues.cs" />
     <Compile Include="Enums\Suits.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PokerEntities\PokerEntities.csproj">
+      <Project>{FC8F0DA1-83FB-47BC-938C-E6B50BF0D1FF}</Project>
+      <Name>PokerEntities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

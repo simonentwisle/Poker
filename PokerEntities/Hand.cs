@@ -10,8 +10,9 @@ namespace Poker.Entities
     public class Hand
     {
         public static int HandNumber { get; set; }
-        public static string Winner { get; set; }
-
+        public static string PlayersName { get; set; }
+        public IEnumerable<Card> Cards { get; set; }
+        
         private bool _isRoyalFlush;
         public bool IsRoyalFlush
         {
@@ -31,7 +32,6 @@ namespace Poker.Entities
         public static bool IsThreeOfAKind { get; set; }
         public static IEnumerable<Pair> Pairs { get; set; }
         public static int HighestCard { get; set; }
-        public IEnumerable<Card> Cards { get; set; }
 
         public Hand()
         {

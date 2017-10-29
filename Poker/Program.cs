@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PokerBL.Classes;
 
 namespace Poker
 {
@@ -10,6 +11,7 @@ namespace Poker
     {
         static void Main(string[] args)
         {
+            Initialise.ImportCardsToList();
         }
     }
 }
