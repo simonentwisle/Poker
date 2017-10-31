@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using PokerBL.Classes;
 using PokerEntities;
 using System.Linq;
+using System.IO;
 
 namespace PokerBL.Classes
 {
@@ -54,6 +55,22 @@ namespace PokerBL.Classes
 
         internal void WriteResults(Game game)
         {
+            FileStream ostrm;
+            StreamWriter writer;
+            TextWriter oldOut = Console.Out;
+            try
+            {
+                ostrm = new FileStream("./Redirect.txt", FileMode.OpenOrCreate, FileAccess.Write);
+                writer = new StreamWriter(ostrm);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Cannot open Redirect.txt for writing");
+                Console.WriteLine(e.Message);
+                return;
+            }
+            Console.SetOut(writer);
+
             Console.WriteLine("Game " + game.GameNumber);
             
             foreach (var hand in game.Hands)
@@ -79,7 +96,11 @@ namespace PokerBL.Classes
                 }
                 Console.WriteLine("");
             }
-            
+
+            Console.SetOut(oldOut);
+            writer.Close();
+            ostrm.Close();
+
         }
 
         internal string AddNextHighestCard(){
