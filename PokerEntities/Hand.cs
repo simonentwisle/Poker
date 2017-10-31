@@ -147,15 +147,7 @@ namespace Poker.Entities
             }
                 
         }
-
-       
-
         
-
-        
-
-       
-
         internal void GetHighestCard()
         {
             HighestCard = Cards.Max(c => c.CardValue);

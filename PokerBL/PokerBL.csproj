@@ -45,7 +45,7 @@
     <Compile Include="Classes\Initialise.cs" />
     <Compile Include="Enums\CardValues.cs" />
     <Compile Include="Enums\Suits.cs" />
-    <Compile Include="GameFunctions.cs" />
+    <Compile Include="Classes\GameFunctions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -14,7 +14,7 @@ namespace PokerBL.Classes
             List<Game> Games = new List<Game>();
             List<Hand> ThePairOfHandsWeWant = new List<Hand>();
 
-            string filePath = @"D:\VisualStudio2017\Poker\Poker\Poker\pokertest.txt";
+            string filePath = @"E:\gitrepos\Poker\Poker\pokertest.txt";
 
             IEnumerable<string> lines = System.IO.File.ReadAllLines(filePath);
 

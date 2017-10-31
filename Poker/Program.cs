@@ -11,7 +11,7 @@ namespace Poker
         static void Main(string[] args)
         {
             Games = Initialise.ImportGames();
-            GameFunctions.AndTheWinnerIs(Games);
+            var winner = new GameFunctions().AndTheWinnerIs(Games);
         }
     }
 }
