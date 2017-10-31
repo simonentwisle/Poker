@@ -5,77 +5,102 @@ using System;
 
 namespace Poker.Entities
 {
-    public class Hand
+    public class Hand : IEquatable<Hand>
     {
-        public static int HandNumber { get; set; }
-        public static string PlayersName { get; set; }
-        public IEnumerable<Card> Cards { get; set; }
-        
-        public static bool HasRoyalFlush { get; set; }
-        public static bool HasStraightFlush { get; set; }
-        public static bool HasFourOfAKind { get; set; }
-        public static bool HasFullHouse { get; set; }
-        public static bool HasAFlush { get; set; }
-        public static bool HasStraight { get; set; }
-        public static bool HasThreeOfAKind { get; set; }
-        public static bool HasAPair { get; set; }
-        public static bool HasTwoPairs { get; set; }
-        public static int HighestCard { get; set; }
-        
+        public int HandNumber { get; set; }
+        public string PlayersName { get; set; }
+        public List<Card> Cards { get; set; }
+        public int Points { get; set; }
+        public  bool HasRoyalFlush { get; set; }
+        public  bool HasStraightFlush { get; set; }
+        public  bool HasFourOfAKind { get; set; }
+        public  bool HasFullHouse { get; set; }
+        public  bool HasAFlush { get; set; }
+        public  bool HasStraight { get; set; }
+        public  bool HasThreeOfAKind { get; set; }
+        public  bool HasAPair { get; set; }
+        public  bool HasTwoPairs { get; set; }
+        public  int HighestCard { get; set; }
+
+        #region Equality
+
+        public bool Equals(Hand other)
+        {
+            if (other == null) return false;
+            return HasRoyalFlush == other.HasRoyalFlush &&
+                    HasStraightFlush == other.HasStraightFlush &&
+                    HasFourOfAKind == other.HasFourOfAKind &&
+                    HasFullHouse == other.HasFullHouse &&
+                    HasAFlush == other.HasAFlush &&
+                    HasStraight == other.HasStraight &&
+                    HasThreeOfAKind == other.HasThreeOfAKind &&
+                    HasAPair == other.HasAPair &&
+                    HasTwoPairs == other.HasTwoPairs &&
+                    HighestCard == other.HighestCard &&
+                    Points == other.Points; 
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != GetType()) return false;
+            return Equals(obj as Hand);
+        }
+        #endregion
+
         public Hand(List<Card> theCards)
         {
-            //this.Cards = theCards;
-
-            List<Card> TestCards = new List<Card>();
-           
-            Card card1 = new Card()
-            {
-                CardValue = 10,
-                Suit = "D"
-            };
-            TestCards.Add(card1);
-
-            Card card2 = new Card()
-            {
-                CardValue = 10,
-                Suit = "S"
-            };
-            TestCards.Add(card2);
-
-            Card card3 = new Card()
-            {
-                CardValue = 10,
-                Suit = "C"
-            };
-            TestCards.Add(card3);
-
-            Card card4 = new Card()
-            {
-                CardValue = 10,
-                Suit = "H"
-            };
-            TestCards.Add(card4);
-
-            Card card5 = new Card()
-            {
-                CardValue = 14,
-                Suit = "D"
-            };
-            TestCards.Add(card5);
-            this.Cards = TestCards;
-
+            Points = 0;
+            this.Cards = theCards;
             this.IsSequential();
             this.AreAllCardsOfTheSameSuit();
             this.IsRoyalFlush();
             this.IsStraightFlush();
             this.GetPairsAndXOfAKind();
+            this.IsThereAFullHouse();
             this.GetHighestCard();
+        }
+
+        public Hand()
+        {
+            Points = 0;
+        }
+
+        internal void IsSequential()
+        {
+            int[] cardValuesInOrder = Cards.OrderBy(c => c.CardValue).Select(c => c.CardValue).ToArray<int>();
+            HasStraight = cardValuesInOrder.Zip(cardValuesInOrder.Skip(1), (a, b) => (a + 1) == b).All(x => x);
+            if (HasStraight)
+                AssignPoints(4);
         }
 
         internal void AreAllCardsOfTheSameSuit()
         {
             var val = Cards.First().Suit;
             HasAFlush = Cards.All(card => card.Suit == val) ? true : false;
+            AssignPoints(6);
+        }
+
+        internal void IsRoyalFlush()
+        {
+            var val = Cards.First().Suit;
+            var hasAFlush = Cards.All(card => card.Suit == val) ? true : false;
+            if (hasAFlush)
+                if (Cards.Where(c => c.CardValue == 10).Count() == 1 && HasStraight)//Hand must start with a 10 if it is a Royal Flush
+                {
+                    AssignPoints(10);
+                    HasRoyalFlush = true;
+                }
+        }
+
+        internal void IsStraightFlush()
+        {
+            if (HasAFlush == true && HasStraight == true)
+            {
+                AssignPoints(9);
+                HasStraightFlush = true;
+            }
         }
 
         internal void GetPairsAndXOfAKind()
@@ -89,47 +114,60 @@ namespace Poker.Entities
                 {
                     case 2:
                         if (HasAPair == true)
+                        { 
                             HasTwoPairs = true;
-                        else
-                            HasAPair = true;  
+                            AssignPoints(3);
+                        }
+                        else{ 
+                            HasAPair = true;
+                            AssignPoints(3);
+                        }
                         break;
                     case 3:
                         HasThreeOfAKind = true;
+                        AssignPoints(4);
                         break;
                     case 4:
                         HasFourOfAKind = true;
+                        AssignPoints(8);
                         break;
                     default:
                         break;
                 }
             }
-           
+
         }
 
-        internal void IsRoyalFlush()
+        internal void IsThereAFullHouse()
         {
-            var val = Cards.First().Suit;
-            var hasAFlush = Cards.All(card => card.Suit == val) ? true : false;
-            if (hasAFlush)
-                if (Cards.Where(c => c.CardValue == 10).Count() == 1 && HasStraight) //Hand must start with a 10 if it is a Royal Flush
-                    HasRoyalFlush = true;
+            if (HasThreeOfAKind == true && HasAPair == true)
+            {
+                AssignPoints(7);
+                HasFullHouse = true;
+            }
+                
         }
 
-        internal void IsStraightFlush()
-        {
-            if (HasAFlush == true && HasStraight == true)
-                HasStraightFlush = true;
-        }
+       
 
-        internal void IsSequential()
-        {
-            int[] cardValuesInOrder = Cards.OrderBy(c => c.CardValue).Select(c => c.CardValue).ToArray<int>();
-            HasStraight = cardValuesInOrder.Zip(cardValuesInOrder.Skip(1), (a, b) => (a + 1) == b).All(x => x);
-        }
+        
+
+        
+
+       
 
         internal void GetHighestCard()
         {
             HighestCard = Cards.Max(c => c.CardValue);
         }
+
+        internal void AssignPoints(int pointsToAssign)
+        {
+            var currentPoints = this.Points;
+            if (pointsToAssign > currentPoints)
+                Points = pointsToAssign;
+        }
+
+
     }
 }

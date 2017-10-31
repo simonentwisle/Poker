@@ -50,11 +50,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="poker.txt" />
+    <Content Include="pokertest.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PokerBL\PokerBL.csproj">
       <Project>{d7e2cec9-0a94-4b0a-9adc-f281911a79a5}</Project>
       <Name>PokerBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PokerEntities\PokerEntities.csproj">
+      <Project>{FC8F0DA1-83FB-47BC-938C-E6B50BF0D1FF}</Project>
+      <Name>PokerEntities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
