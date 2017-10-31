@@ -51,6 +51,7 @@
   <ItemGroup>
     <Content Include="poker.txt" />
     <Content Include="pokertest.txt" />
+    <Content Include="results.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PokerBL\PokerBL.csproj">

@@ -79,7 +79,8 @@ namespace Poker.Entities
         {
             var val = Cards.First().Suit;
             HasAFlush = Cards.All(card => card.Suit == val) ? true : false;
-            AssignPoints(6);
+            if (HasAFlush)
+                AssignPoints(6);
         }
 
         internal void IsRoyalFlush()
@@ -89,8 +90,8 @@ namespace Poker.Entities
             if (hasAFlush)
                 if (Cards.Where(c => c.CardValue == 10).Count() == 1 && HasStraight)//Hand must start with a 10 if it is a Royal Flush
                 {
-                    AssignPoints(10);
                     HasRoyalFlush = true;
+                    AssignPoints(10);
                 }
         }
 
@@ -98,8 +99,8 @@ namespace Poker.Entities
         {
             if (HasAFlush == true && HasStraight == true)
             {
-                AssignPoints(9);
                 HasStraightFlush = true;
+                AssignPoints(9);
             }
         }
 
@@ -120,7 +121,7 @@ namespace Poker.Entities
                         }
                         else{ 
                             HasAPair = true;
-                            AssignPoints(3);
+                            AssignPoints(2);
                         }
                         break;
                     case 3:
@@ -142,8 +143,8 @@ namespace Poker.Entities
         {
             if (HasThreeOfAKind == true && HasAPair == true)
             {
-                AssignPoints(7);
                 HasFullHouse = true;
+                AssignPoints(7);
             }
                 
         }

@@ -19,6 +19,8 @@ namespace PokerBL.Classes
         public string AndTheWinnerIs(List<Game> games)
         {
             int gameNumber = 1;
+            //Empty Results File
+            File.WriteAllText(@"../../results.txt", string.Empty);
             foreach (Game game in games)
             {
                 List<Hand> theHands = game.Hands;
@@ -60,7 +62,7 @@ namespace PokerBL.Classes
             TextWriter oldOut = Console.Out;
             try
             {
-                ostrm = new FileStream("./Redirect.txt", FileMode.OpenOrCreate, FileAccess.Write);
+                ostrm = new FileStream("../../results.txt", FileMode.Append, FileAccess.Write);
                 writer = new StreamWriter(ostrm);
             }
             catch (Exception e)
@@ -83,8 +85,31 @@ namespace PokerBL.Classes
                     {
                         Console.Write(card.CardValue + card.Suit + " ");
                     }
+                    Console.Write("----");
+                    if (hand.HasAFlush == true)
+                        Console.Write("Flush  ");
+                    if (hand.HasAPair == true)
+                        Console.Write("Pair  ");
+                    if (hand.HasFourOfAKind == true)
+                        Console.Write("Four Of A Kind  ");
+                    if (hand.HasFullHouse == true)
+                        Console.Write("Full House  ");
+                    if (hand.HasRoyalFlush == true)
+                        Console.Write("Royal Flush  ");
+                    if (hand.HasStraight == true)
+                        Console.Write("Straight  ");
+                    if (hand.HasStraightFlush == true)
+                        Console.Write("StraightFlush  ");
+                    if (hand.HasThreeOfAKind == true)
+                        Console.Write("Three Of A Kind  ");
+                    if (hand.HasTwoPairs == true)
+                        Console.Write("Two Pairs  ");
+                        Console.Write("Highest Card = " + hand.HighestCard.ToString());
+                        Console.Write(" Points = " + hand.Points);
+                    if (game.Winner == "Player1")
+                        Console.Write(" **WINNER**");
                 }
-
+                
                 if (hand.PlayersName == "Player2")
                 {
                     Console.Write("Player2Cards: ");
@@ -93,6 +118,29 @@ namespace PokerBL.Classes
                     {
                         Console.Write(card.CardValue + card.Suit + " ");
                     }
+                    Console.Write("----");
+                    if (hand.HasAFlush == true)
+                        Console.Write("Flush  ");
+                    if (hand.HasAPair == true)
+                        Console.Write("Pair  ");
+                    if (hand.HasFourOfAKind == true)
+                        Console.Write("Four Of A Kind  ");
+                    if (hand.HasFullHouse == true)
+                        Console.Write("Full House  ");
+                    if (hand.HasRoyalFlush == true)
+                        Console.Write("Royal Flush  ");
+                    if (hand.HasStraight == true)
+                        Console.Write("Straight  ");
+                    if (hand.HasStraightFlush == true)
+                        Console.Write("StraightFlush  ");
+                    if (hand.HasThreeOfAKind == true)
+                        Console.Write("Three Of A Kind  ");
+                    if (hand.HasTwoPairs == true)
+                        Console.Write("Two Pairs  ");
+                    Console.Write("Highest Card = " + hand.HighestCard.ToString());
+                    Console.Write(" Points = " + hand.Points);
+                    if (game.Winner == "Player2")
+                        Console.Write(" **WINNER**");
                 }
                 Console.WriteLine("");
             }
@@ -105,14 +153,23 @@ namespace PokerBL.Classes
 
         internal string AddNextHighestCard(){
 
+            string winner = "";
             for (int i = 0; i < 5; i++)
 			{
                 player1sHand.Points = player1sHand.Points + player1sHand.Cards.OrderByDescending(c => c.CardValue).ElementAt(i).CardValue;
                 player2sHand.Points = player2sHand.Points + player2sHand.Cards.OrderByDescending(c => c.CardValue).ElementAt(i).CardValue;
                 if (player1sHand.Points > player2sHand.Points)
-	                return "Player1";
-			}
-            return "Player2";
+                {
+                    winner = "Player1";
+                    break;
+                }
+                else
+                { 
+                    winner = "Player2";
+                    break;
+                }
+            }
+            return winner;
         }
     }
 }
