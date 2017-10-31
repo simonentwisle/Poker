@@ -16,7 +16,8 @@ namespace PokerBL.Classes
         private int Player2Total = 0;
 
         public string AndTheWinnerIs(List<Game> games)
-        {   
+        {
+            int gameNumber = 1;
             foreach (Game game in games)
             {
                 List<Hand> theHands = game.Hands;
@@ -36,6 +37,11 @@ namespace PokerBL.Classes
                 {
                     game.Winner = AddNextHighestCard();
                 }
+
+                game.GameNumber = gameNumber;
+
+                WriteResults(game);
+                gameNumber++;
             }
 
             Player1Total = games.Where(w => w.Winner.Equals("Player1")).Count();
@@ -44,6 +50,36 @@ namespace PokerBL.Classes
             if (Player1Total > Player2Total)
                 return "Player1";
             return "Player2";
+        }
+
+        internal void WriteResults(Game game)
+        {
+            Console.WriteLine("Game " + game.GameNumber);
+            
+            foreach (var hand in game.Hands)
+            {
+                if (hand.PlayersName == "Player1")
+                {
+                    Console.Write("Player1Cards: ");
+                    var player1Cards = hand.Cards;
+                    foreach (var card in player1Cards)
+                    {
+                        Console.Write(card.CardValue + card.Suit + " ");
+                    }
+                }
+
+                if (hand.PlayersName == "Player2")
+                {
+                    Console.Write("Player2Cards: ");
+                    var player2Cards = hand.Cards;
+                    foreach (var card in player2Cards)
+                    {
+                        Console.Write(card.CardValue + card.Suit + " ");
+                    }
+                }
+                Console.WriteLine("");
+            }
+            
         }
 
         internal string AddNextHighestCard(){
