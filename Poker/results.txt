@@ -17,7 +17,7 @@ Game 6
 Player1Cards: 5H 13S 9C 7D 9H ----Pair   Highest Card = 13 Highest Pair = 9 Second Highest Pair = 0 Points = 2 **WINNER**
 Player2Cards: 8D 3S 5D 5C 14H ----Pair  Highest Card = 14 Highest Pair = 5 Second Highest Pair = 0 Points = 2
 Game 7
-Player1Cards: 6H 4H 5C 3H 2H ----Straight   Highest Card = 6 Highest Pair = 0 Second Highest Pair = 0 Points = 4 **WINNER**
+Player1Cards: 6H 4H 5C 3H 2H ----Straight   Highest Card = 6 Highest Pair = 0 Second Highest Pair = 0 Points = 5 **WINNER**
 Player2Cards: 3S 12H 5S 6S 14S ----Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 0
 Game 8
 Player1Cards: 10D 8C 4H 7C 10C ----Pair   Highest Card = 10 Highest Pair = 10 Second Highest Pair = 0 Points = 2
@@ -722,7 +722,7 @@ Game 241
 Player1Cards: 5S 3D 13S 14C 4S ---- Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 14 **WINNER**
 Player2Cards: 7D 12D 4C 10H 2S ----Highest Card = 12 Highest Pair = 0 Second Highest Pair = 0 Points = 12
 Game 242
-Player1Cards: 10S 8H 9S 6S 7S ----Straight   Highest Card = 10 Highest Pair = 0 Second Highest Pair = 0 Points = 4 **WINNER**
+Player1Cards: 10S 8H 9S 6S 7S ----Straight   Highest Card = 10 Highest Pair = 0 Second Highest Pair = 0 Points = 5 **WINNER**
 Player2Cards: 12H 3C 14H 7H 8C ----Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 0
 Game 243
 Player1Cards: 4C 8C 10S 11S 12C ---- Highest Card = 12 Highest Pair = 0 Second Highest Pair = 0 Points = 0
@@ -780,7 +780,7 @@ Player1Cards: 4C 7C 3D 12C 10C ---- Highest Card = 12 Highest Pair = 0 Second Hi
 Player2Cards: 4S 13H 8C 2D 11S ----Highest Card = 13 Highest Pair = 0 Second Highest Pair = 0 Points = 13 **WINNER**
 Game 261
 Player1Cards: 6H 5D 7S 5H 9C ----Pair   Highest Card = 9 Highest Pair = 5 Second Highest Pair = 0 Points = 2
-Player2Cards: 9H 11H 8S 10H 7H ----Straight  Highest Card = 11 Highest Pair = 0 Second Highest Pair = 0 Points = 4 **WINNER**
+Player2Cards: 9H 11H 8S 10H 7H ----Straight  Highest Card = 11 Highest Pair = 0 Second Highest Pair = 0 Points = 5 **WINNER**
 Game 262
 Player1Cards: 14S 11S 2S 12D 13H ---- Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 0
 Player2Cards: 8H 4S 14C 8D 8S ----Three Of A Kind  Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 4 **WINNER**
@@ -1047,7 +1047,7 @@ Player1Cards: 2S 3D 10S 10D 9S ----Pair   Highest Card = 10 Highest Pair = 10 Se
 Player2Cards: 13S 6S 12S 5C 8D ----Highest Card = 13 Highest Pair = 0 Second Highest Pair = 0 Points = 0
 Game 350
 Player1Cards: 3C 6D 4S 12C 13C ---- Highest Card = 13 Highest Pair = 0 Second Highest Pair = 0 Points = 0
-Player2Cards: 11H 12D 10H 13H 14D ----Straight  Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 4 **WINNER**
+Player2Cards: 11H 12D 10H 13H 14D ----Straight  Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 5 **WINNER**
 Game 351
 Player1Cards: 9H 14H 4D 13S 2S ---- Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 0
 Player2Cards: 8D 11H 11C 7C 12S ----Pair  Highest Card = 12 Highest Pair = 11 Second Highest Pair = 0 Points = 2 **WINNER**
@@ -1062,7 +1062,7 @@ Player1Cards: 5H 8H 13H 8S 13S ----Pair  Two Pairs   Highest Card = 13 Highest P
 Player2Cards: 7C 10D 14D 4S 13D ----Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 0
 Game 355
 Player1Cards: 2C 7C 11C 5S 14S ---- Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 0
-Player2Cards: 6C 7D 8S 5H 9C ----Straight  Highest Card = 9 Highest Pair = 0 Second Highest Pair = 0 Points = 4 **WINNER**
+Player2Cards: 6C 7D 8S 5H 9C ----Straight  Highest Card = 9 Highest Pair = 0 Second Highest Pair = 0 Points = 5 **WINNER**
 Game 356
 Player1Cards: 6S 12D 9S 10S 13H ---- Highest Card = 13 Highest Pair = 0 Second Highest Pair = 0 Points = 0
 Player2Cards: 12S 5S 12H 3C 13C ----Pair  Highest Card = 13 Highest Pair = 12 Second Highest Pair = 0 Points = 2 **WINNER**
@@ -1152,7 +1152,7 @@ Player1Cards: 11D 12C 5D 6S 9H ---- Highest Card = 12 Highest Pair = 0 Second Hi
 Player2Cards: 3S 2C 8H 9S 10S ----Highest Card = 10 Highest Pair = 0 Second Highest Pair = 0 Points = 10
 Game 385
 Player1Cards: 2S 4C 14D 7H 11C ---- Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 0
-Player2Cards: 5C 2D 6D 4H 3D ----Straight  Highest Card = 6 Highest Pair = 0 Second Highest Pair = 0 Points = 4 **WINNER**
+Player2Cards: 5C 2D 6D 4H 3D ----Straight  Highest Card = 6 Highest Pair = 0 Second Highest Pair = 0 Points = 5 **WINNER**
 Game 386
 Player1Cards: 7S 11S 2C 4H 8C ---- Highest Card = 11 Highest Pair = 0 Second Highest Pair = 0 Points = 11
 Player2Cards: 14D 12D 9C 3S 10D ----Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 14 **WINNER**
@@ -1347,7 +1347,7 @@ Player1Cards: 5D 11H 14C 5C 9S ----Pair   Highest Card = 14 Highest Pair = 5 Sec
 Player2Cards: 10S 4C 11D 8C 13S ----Highest Card = 13 Highest Pair = 0 Second Highest Pair = 0 Points = 0
 Game 450
 Player1Cards: 13C 14S 2D 13H 9H ----Pair   Highest Card = 14 Highest Pair = 13 Second Highest Pair = 0 Points = 2
-Player2Cards: 2C 5S 4D 3D 6H ----Straight  Highest Card = 6 Highest Pair = 0 Second Highest Pair = 0 Points = 4 **WINNER**
+Player2Cards: 2C 5S 4D 3D 6H ----Straight  Highest Card = 6 Highest Pair = 0 Second Highest Pair = 0 Points = 5 **WINNER**
 Game 451
 Player1Cards: 10H 14H 2D 8S 11C ---- Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 0
 Player2Cards: 3D 8C 12H 7S 3S ----Pair  Highest Card = 12 Highest Pair = 3 Second Highest Pair = 0 Points = 2 **WINNER**
@@ -1629,7 +1629,7 @@ Player1Cards: 14C 9C 5D 12C 4D ---- Highest Card = 14 Highest Pair = 0 Second Hi
 Player2Cards: 14D 8D 6D 8C 13C ----Pair  Highest Card = 14 Highest Pair = 8 Second Highest Pair = 0 Points = 2 **WINNER**
 Game 544
 Player1Cards: 14D 3C 4H 14C 8D ----Pair   Highest Card = 14 Highest Pair = 14 Second Highest Pair = 0 Points = 2
-Player2Cards: 8H 7S 9S 10D 11C ----Straight  Highest Card = 11 Highest Pair = 0 Second Highest Pair = 0 Points = 4 **WINNER**
+Player2Cards: 8H 7S 9S 10D 11C ----Straight  Highest Card = 11 Highest Pair = 0 Second Highest Pair = 0 Points = 5 **WINNER**
 Game 545
 Player1Cards: 4H 9H 12H 11S 2D ---- Highest Card = 12 Highest Pair = 0 Second Highest Pair = 0 Points = 0
 Player2Cards: 10H 10D 10C 13D 13S ----Pair  Full House  Three Of A Kind  Highest Card = 13 Highest Pair = 13 Second Highest Pair = 0 Points = 7 **WINNER**
@@ -1724,7 +1724,7 @@ Game 575
 Player1Cards: 14H 8H 5S 4C 9H ---- Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 0
 Player2Cards: 11D 3H 7S 11C 14C ----Pair  Highest Card = 14 Highest Pair = 11 Second Highest Pair = 0 Points = 2 **WINNER**
 Game 576
-Player1Cards: 3C 2D 4C 5S 6C ----Straight   Highest Card = 6 Highest Pair = 0 Second Highest Pair = 0 Points = 4 **WINNER**
+Player1Cards: 3C 2D 4C 5S 6C ----Straight   Highest Card = 6 Highest Pair = 0 Second Highest Pair = 0 Points = 5 **WINNER**
 Player2Cards: 4S 12S 3S 11D 3D ----Pair  Highest Card = 12 Highest Pair = 3 Second Highest Pair = 0 Points = 2
 Game 577
 Player1Cards: 5H 2D 10C 14H 13S ---- Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 0
@@ -1898,7 +1898,7 @@ Game 633
 Player1Cards: 3C 13D 2H 3H 12S ----Pair   Highest Card = 13 Highest Pair = 3 Second Highest Pair = 0 Points = 2 **WINNER**
 Player2Cards: 11D 10C 12C 5D 8H ----Highest Card = 12 Highest Pair = 0 Second Highest Pair = 0 Points = 0
 Game 634
-Player1Cards: 13S 11C 12D 10H 9S ----Straight   Highest Card = 13 Highest Pair = 0 Second Highest Pair = 0 Points = 4 **WINNER**
+Player1Cards: 13S 11C 12D 10H 9S ----Straight   Highest Card = 13 Highest Pair = 0 Second Highest Pair = 0 Points = 5 **WINNER**
 Player2Cards: 13D 8D 8C 2D 9C ----Pair  Highest Card = 13 Highest Pair = 8 Second Highest Pair = 0 Points = 2
 Game 635
 Player1Cards: 3C 12D 13D 6D 4D ---- Highest Card = 13 Highest Pair = 0 Second Highest Pair = 0 Points = 0
@@ -2252,8 +2252,8 @@ Game 751
 Player1Cards: 13S 7H 2H 10C 4H ---- Highest Card = 13 Highest Pair = 0 Second Highest Pair = 0 Points = 0
 Player2Cards: 2C 3S 14S 14H 12S ----Pair  Highest Card = 14 Highest Pair = 14 Second Highest Pair = 0 Points = 2 **WINNER**
 Game 752
-Player1Cards: 8C 2D 2H 2C 4S ----Three Of A Kind   Highest Card = 8 Highest Pair = 0 Second Highest Pair = 0 Points = 4 **WINNER**
-Player2Cards: 4C 6S 7D 5S 3S ----Straight  Highest Card = 7 Highest Pair = 0 Second Highest Pair = 0 Points = 4
+Player1Cards: 8C 2D 2H 2C 4S ----Three Of A Kind   Highest Card = 8 Highest Pair = 0 Second Highest Pair = 0 Points = 4
+Player2Cards: 4C 6S 7D 5S 3S ----Straight  Highest Card = 7 Highest Pair = 0 Second Highest Pair = 0 Points = 5 **WINNER**
 Game 753
 Player1Cards: 10H 12C 5D 10D 3C ----Pair   Highest Card = 12 Highest Pair = 10 Second Highest Pair = 0 Points = 2
 Player2Cards: 12S 13D 13C 13S 14S ----Three Of A Kind  Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 4 **WINNER**
@@ -2496,7 +2496,7 @@ Player1Cards: 4H 11D 5D 3S 3C ----Pair   Highest Card = 11 Highest Pair = 3 Seco
 Player2Cards: 4D 13H 12H 12S 7S ----Pair  Highest Card = 13 Highest Pair = 12 Second Highest Pair = 0 Points = 2 **WINNER**
 Game 833
 Player1Cards: 11D 10S 8S 12D 14H ---- Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 0
-Player2Cards: 4C 6H 3S 5S 2C ----Straight  Highest Card = 6 Highest Pair = 0 Second Highest Pair = 0 Points = 4 **WINNER**
+Player2Cards: 4C 6H 3S 5S 2C ----Straight  Highest Card = 6 Highest Pair = 0 Second Highest Pair = 0 Points = 5 **WINNER**
 Game 834
 Player1Cards: 12S 3D 11D 14S 8D ---- Highest Card = 14 Highest Pair = 0 Second Highest Pair = 0 Points = 14 **WINNER**
 Player2Cards: 10H 7C 6S 12C 13S ----Highest Card = 13 Highest Pair = 0 Second Highest Pair = 0 Points = 13

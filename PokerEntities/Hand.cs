@@ -71,6 +71,7 @@ namespace Poker.Entities
             this.GetPairsAndXOfAKind();
             this.IsThereAFullHouse();
             this.GetHighestCard();
+            this.AssignPoints();
         }
 
         public Hand()
@@ -87,16 +88,12 @@ namespace Poker.Entities
         {
             int[] cardValuesInOrder = Cards.OrderBy(c => c.CardValue).Select(c => c.CardValue).ToArray<int>();
             HasStraight = cardValuesInOrder.Zip(cardValuesInOrder.Skip(1), (a, b) => (a + 1) == b).All(x => x);
-            if (HasStraight)
-                AssignPoints(4);
         }
 
         internal void AreAllCardsOfTheSameSuit()
         {
             var val = Cards.First().Suit;
             HasAFlush = Cards.All(card => card.Suit == val) ? true : false;
-            if (HasAFlush)
-                AssignPoints(6);
         }
 
         internal void IsRoyalFlush()
@@ -107,7 +104,6 @@ namespace Poker.Entities
                 if (Cards.Where(c => c.CardValue == 10).Count() == 1 && HasStraight)//Hand must start with a 10 if it is a Royal Flush
                 {
                     HasRoyalFlush = true;
-                    AssignPoints(10);
                 }
         }
 
@@ -116,7 +112,6 @@ namespace Poker.Entities
             if (HasAFlush == true && HasStraight == true)
             {
                 HasStraightFlush = true;
-                AssignPoints(9);
             }
         }
 
@@ -134,23 +129,19 @@ namespace Poker.Entities
                         { 
                             HasTwoPairs = true;
                             SetHighestPair(group.Select(g => g.CardValue).FirstOrDefault());
-                            AssignPoints(3);
                         }
                         else{ 
                             HasAPair = true;
                             SetHighestPair(group.Select(g => g.CardValue).FirstOrDefault());
-                            AssignPoints(2);
                         }
                         break;
                     case 3:
                         HasThreeOfAKind = true;
                         SetHighestThreeOfAKind(group.Select(g => g.CardValue).FirstOrDefault());
-                        AssignPoints(4);
                         break;
                     case 4:
                         HasFourOfAKind = true;
                         SetHighestFourOfAKind(group.Select(g => g.CardValue).FirstOrDefault());
-                        AssignPoints(8);
                         break;
                     default:
                         break;
@@ -189,7 +180,6 @@ namespace Poker.Entities
             if (HasThreeOfAKind == true && HasAPair == true)
             {
                 HasFullHouse = true;
-                AssignPoints(7);
             }
                 
         }
@@ -199,12 +189,36 @@ namespace Poker.Entities
             HighestCard = Cards.Max(c => c.CardValue);
         }
 
-        internal void AssignPoints(int pointsToAssign)
+        internal void AssignPoints()
         {
-            var currentPoints = this.Points;
-            if (pointsToAssign > currentPoints)
-                Points = pointsToAssign;
+            if (this.HasAPair == true)
+                Points = 2;
+
+            if (this.HasTwoPairs == true)
+                Points = 3;
+
+            if (this.HasThreeOfAKind== true)
+                Points = 4;
+
+            if (this.HasStraight == true)
+                Points = 5;
+
+            if (this.HasAFlush == true)
+                Points = 6;
+
+            if (this.HasFullHouse == true)
+                Points = 7;
+
+            if (this.HasFourOfAKind == true)
+                Points = 8;
+
+            if (this.HasStraightFlush == true)
+                Points = 9;
+
+            if (this.HasRoyalFlush == true)
+                Points = 10;
+        }
         }
         
     }
-}
+
