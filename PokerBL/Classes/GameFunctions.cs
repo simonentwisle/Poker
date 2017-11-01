@@ -23,6 +23,8 @@ namespace PokerBL.Classes
             File.WriteAllText(@"../../results.txt", string.Empty);
             foreach (Game game in games)
             {
+                game.GameNumber = gameNumber;
+
                 List<Hand> theHands = game.Hands;
                 
                 foreach (var hand in theHands)
@@ -31,18 +33,84 @@ namespace PokerBL.Classes
                     if (hand.PlayersName == "Player2") { player2sHand = hand; }
                 }
 
-                if (player1sHand.Points > player2sHand.Points)
-                    game.Winner = "Player1";
-                if (player2sHand.Points > player1sHand.Points)
-                    game.Winner = "Player2";
-
+                //Check for pairs
+                //if (player1sHand.HasAPair == true || player2sHand.HasAPair == true)
+                //{
+                //    game.Winner = WhoHasTheHighestPairs(player1sHand, player2sHand);
+                //    WriteResults(game);
+                //    continue;
+                //}
                 if (player1sHand.Points.Equals(player2sHand.Points))
                 {
-                    game.Winner = AddNextHighestCard();
+                    //Full House check for four of a kind
+                    if ((player1sHand.Points == 7) && (player2sHand.Points == 7))
+                    {
+                        if (player1sHand.HighestThreeOfAKind > player2sHand.HighestThreeOfAKind)
+                            game.Winner = "Player1";
+                        if (player1sHand.HighestThreeOfAKind < player2sHand.HighestThreeOfAKind)
+                            game.Winner = "Player2";
+                        WriteResults(game);
+                        gameNumber++;
+                        continue;
+                    }
+
+                    //Check for four of a kind
+                    if ((player1sHand.Points == 8) && (player2sHand.Points == 8))
+                    {
+                        if (player1sHand.HighestFourOfAKind > player2sHand.HighestFourOfAKind)
+                            game.Winner = "Player1";
+                        if (player1sHand.HighestFourOfAKind < player2sHand.HighestFourOfAKind)
+                            game.Winner = "Player2";
+                        WriteResults(game);
+                        gameNumber++;
+                        continue;
+                    }
+
+                    //Check for three of a kind
+                    if ((player1sHand.Points == 4) && (player2sHand.Points == 4 ))
+                    {
+                        if (player1sHand.HighestThreeOfAKind > player2sHand.HighestThreeOfAKind)
+                            game.Winner = "Player1";
+                        if (player1sHand.HighestThreeOfAKind < player2sHand.HighestThreeOfAKind)
+                            game.Winner = "Player2";
+                        WriteResults(game);
+                        gameNumber++;
+                        continue;
+                    }
+
+                    //Check for pairs
+                    if ((player1sHand.Points <= 3 && player1sHand.Points > 1)|| (player2sHand.Points <= 3 && player2sHand.Points > 1))
+                    {
+                        game.Winner = WhoHasTheHighestPairs(player1sHand, player2sHand);
+                        WriteResults(game);
+                        gameNumber++;
+                        continue;
+                    }
+                       
+                    //game.Winner = AddNextHighestCard();
                 }
 
-                game.GameNumber = gameNumber;
+                if (player1sHand.Points > player2sHand.Points)
+                {
+                    game.Winner = "Player1";
+                    if (player1sHand.Points <= 3)
+                        game.Winner = WhoHasTheHighestPairs(player1sHand, player2sHand);
+                    WriteResults(game);
+                    gameNumber++;
+                    continue;
+                }
+                    
+                if (player2sHand.Points > player1sHand.Points)
+                {
+                    game.Winner = "Player2";
+                    if (player2sHand.Points <= 3)
+                        game.Winner = WhoHasTheHighestPairs(player1sHand, player2sHand);
+                    WriteResults(game);
+                    gameNumber++;
+                    continue;
+                }
 
+                game.Winner = AddNextHighestCard();
                 WriteResults(game);
                 gameNumber++;
             }
@@ -53,6 +121,17 @@ namespace PokerBL.Classes
             if (Player1Total > Player2Total)
                 return "Player1";
             return "Player2";
+        }
+
+        internal string WhoHasTheHighestPairs(Hand player1sHand, Hand player2sHand)
+        {
+            int player1PairsTotal = player1sHand.HighestPair + player1sHand.SecondHighestPair;
+            int player2PairsTotal = player2sHand.HighestPair + player2sHand.SecondHighestPair;
+            if (player1PairsTotal > player2PairsTotal)
+                return "Player1";
+            if (player2PairsTotal > player1PairsTotal)
+                return "Player2";
+            return AddNextHighestCard(); 
         }
 
         internal void WriteResults(Game game)
@@ -104,7 +183,9 @@ namespace PokerBL.Classes
                         Console.Write("Three Of A Kind  ");
                     if (hand.HasTwoPairs == true)
                         Console.Write("Two Pairs  ");
-                        Console.Write("Highest Card = " + hand.HighestCard.ToString());
+                        Console.Write(" Highest Card = " + hand.HighestCard.ToString());
+                        Console.Write(" Highest Pair = " + hand.HighestPair.ToString());
+                        Console.Write(" Second Highest Pair = " + hand.SecondHighestPair.ToString());
                         Console.Write(" Points = " + hand.Points);
                     if (game.Winner == "Player1")
                         Console.Write(" **WINNER**");
@@ -138,6 +219,8 @@ namespace PokerBL.Classes
                     if (hand.HasTwoPairs == true)
                         Console.Write("Two Pairs  ");
                     Console.Write("Highest Card = " + hand.HighestCard.ToString());
+                    Console.Write(" Highest Pair = " + hand.HighestPair.ToString());
+                    Console.Write(" Second Highest Pair = " + hand.SecondHighestPair.ToString());
                     Console.Write(" Points = " + hand.Points);
                     if (game.Winner == "Player2")
                         Console.Write(" **WINNER**");
@@ -163,7 +246,7 @@ namespace PokerBL.Classes
                     winner = "Player1";
                     break;
                 }
-                else
+                if (player2sHand.Points > player1sHand.Points)
                 { 
                     winner = "Player2";
                     break;

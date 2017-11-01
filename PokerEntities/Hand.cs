@@ -21,6 +21,10 @@ namespace Poker.Entities
         public  bool HasAPair { get; set; }
         public  bool HasTwoPairs { get; set; }
         public  int HighestCard { get; set; }
+        public int HighestPair { get; set; }
+        public int SecondHighestPair { get; set; }
+        public int HighestThreeOfAKind { get; set; }
+        public int HighestFourOfAKind { get; set; }
 
         #region Equality
 
@@ -37,6 +41,8 @@ namespace Poker.Entities
                     HasAPair == other.HasAPair &&
                     HasTwoPairs == other.HasTwoPairs &&
                     HighestCard == other.HighestCard &&
+                    HighestPair == other.HighestPair &&
+                    SecondHighestPair == other.SecondHighestPair &&
                     Points == other.Points; 
         }
 
@@ -52,6 +58,11 @@ namespace Poker.Entities
         public Hand(List<Card> theCards)
         {
             Points = 0;
+            HighestCard = 0;
+            HighestPair = 0;
+            HighestThreeOfAKind = 0;
+            HighestFourOfAKind = 0;
+            SecondHighestPair = 0;
             this.Cards = theCards;
             this.IsSequential();
             this.AreAllCardsOfTheSameSuit();
@@ -65,6 +76,11 @@ namespace Poker.Entities
         public Hand()
         {
             Points = 0;
+            HighestCard = 0;
+            HighestPair = 0;
+            SecondHighestPair = 0;
+            HighestThreeOfAKind = 0;
+            HighestFourOfAKind = 0;
         }
 
         internal void IsSequential()
@@ -117,19 +133,23 @@ namespace Poker.Entities
                         if (HasAPair == true)
                         { 
                             HasTwoPairs = true;
+                            SetHighestPair(group.Select(g => g.CardValue).FirstOrDefault());
                             AssignPoints(3);
                         }
                         else{ 
                             HasAPair = true;
+                            SetHighestPair(group.Select(g => g.CardValue).FirstOrDefault());
                             AssignPoints(2);
                         }
                         break;
                     case 3:
                         HasThreeOfAKind = true;
+                        SetHighestThreeOfAKind(group.Select(g => g.CardValue).FirstOrDefault());
                         AssignPoints(4);
                         break;
                     case 4:
                         HasFourOfAKind = true;
+                        SetHighestFourOfAKind(group.Select(g => g.CardValue).FirstOrDefault());
                         AssignPoints(8);
                         break;
                     default:
@@ -137,6 +157,31 @@ namespace Poker.Entities
                 }
             }
 
+        }
+
+        internal void SetHighestFourOfAKind(int value)
+        {
+            if (HighestFourOfAKind < value)
+            {
+                HighestFourOfAKind = value;
+            }
+        }
+
+        internal void SetHighestPair(int pairValue)
+        {
+            if (HighestPair < pairValue) {
+                SecondHighestPair = HighestPair; 
+                HighestPair = pairValue;
+            }
+            else SecondHighestPair = pairValue;
+        }
+
+        internal void SetHighestThreeOfAKind(int value)
+        {
+            if (HighestThreeOfAKind < value)
+            {
+                HighestThreeOfAKind = value;
+            }
         }
 
         internal void IsThereAFullHouse()
@@ -160,7 +205,6 @@ namespace Poker.Entities
             if (pointsToAssign > currentPoints)
                 Points = pointsToAssign;
         }
-
-
+        
     }
 }

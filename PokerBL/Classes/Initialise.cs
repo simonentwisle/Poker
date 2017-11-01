@@ -14,11 +14,11 @@ namespace PokerBL.Classes
             List<Game> Games = new List<Game>();
             List<Hand> ThePairOfHandsWeWant = new List<Hand>();
 
-            string filePath = @"E:\gitrepos\Poker\Poker\poker.txt";
+            string filePath = @"D:\VisualStudio2017\Poker\Poker\Poker\poker.txt";
 
             IEnumerable<string> lines = System.IO.File.ReadAllLines(filePath);
-
-            foreach (var line in lines)
+            
+            foreach (var line in lines) 
             {
                 var game = new Game();
                 game.GameNumber = GameNumber;
